@@ -33,7 +33,7 @@ public class ArithmeticExpression extends Expression {
     }
 
     @Override
-    public String toStr() {
-        return exp1.toStr() + " " + operator + " " + exp2.toStr();
+    public String toString() {
+        return exp1.toString() + " " + operator + " " + exp2.toString();
     }
 }

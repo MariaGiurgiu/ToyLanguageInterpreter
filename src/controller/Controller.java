@@ -17,7 +17,7 @@ public class Controller {
         this.repository = repository;
     }
 
-    void oneStep(ProgramState state) throws ToyExecutionException {
+    private void oneStep(ProgramState state) throws ToyExecutionException {
         IStack stack = state.getExecutionStack();
         if (stack.isEmpty())
             throw new ToyExecutionException("Empty Stack. Nothing to execute.");

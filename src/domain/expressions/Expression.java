@@ -9,5 +9,6 @@ public abstract class Expression {
 
     public abstract int eval(IDictionary symbols);
 
-    public abstract String toStr();
+    @Override
+    public abstract String toString();
 }

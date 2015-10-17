@@ -18,8 +18,8 @@ public class IfStatement implements IStatement {
     }
 
     @Override
-    public String toStr() {
-        return "if " + expression.toStr() + " then " + thenStatement.toStr() + " else " + elseStatement.toStr();
+    public String toString() {
+        return "if " + expression.toString() + " then " + thenStatement.toString() + " else " + elseStatement.toString();
     }
 
     public Expression getExpression() {

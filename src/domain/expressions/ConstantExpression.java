@@ -19,7 +19,7 @@ public class ConstantExpression extends Expression {
     }
 
     @Override
-    public String toStr() {
+    public String toString() {
         return Integer.toString(number);
     }
 }

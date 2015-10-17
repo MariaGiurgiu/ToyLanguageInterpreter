@@ -19,7 +19,7 @@ public class VariableExpression extends Expression {
     }
 
     @Override
-    public String toStr() {
+    public String toString() {
         return id;
     }
 }

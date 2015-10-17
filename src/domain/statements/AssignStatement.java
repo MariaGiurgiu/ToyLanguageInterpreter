@@ -16,8 +16,8 @@ public class AssignStatement implements IStatement {
     }
 
     @Override
-    public String toStr() {
-        return name + " = " + expression.toStr();
+    public String toString() {
+        return name + " = " + expression.toString();
     }
 
     public Expression getExpression() {
