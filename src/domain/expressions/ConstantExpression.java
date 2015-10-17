@@ -7,7 +7,7 @@ import domain.execution.IDictionary;
  */
 public class ConstantExpression extends Expression {
 
-    int number;
+    private final int number;
 
     public ConstantExpression(int number) {
         this.number = number;

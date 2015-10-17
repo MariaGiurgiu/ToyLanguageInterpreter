@@ -7,9 +7,9 @@ import domain.expressions.Expression;
  */
 public class IfStatement implements IStatement {
 
-    private Expression expression;
-    private IStatement thenStatement;
-    private IStatement elseStatement;
+    private final Expression expression;
+    private final IStatement thenStatement;
+    private final IStatement elseStatement;
 
     public IfStatement(Expression expression, IStatement thenStatement, IStatement elseStatement) {
         this.expression = expression;

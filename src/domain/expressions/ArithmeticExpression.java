@@ -7,9 +7,9 @@ import domain.execution.IDictionary;
  */
 public class ArithmeticExpression extends Expression {
 
-    private Expression exp1;
-    private Expression exp2;
-    private char operator;
+    private final Expression exp1;
+    private final Expression exp2;
+    private final char operator;
 
     public ArithmeticExpression(Expression exp1, Expression exp2, char operator) {
         this.exp1 = exp1;

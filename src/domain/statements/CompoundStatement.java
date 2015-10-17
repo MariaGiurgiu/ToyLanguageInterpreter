@@ -7,8 +7,8 @@ package domain.statements;
  */
 public class CompoundStatement implements IStatement {
 
-    private IStatement first;
-    private IStatement second;
+    private final IStatement first;
+    private final IStatement second;
 
     public CompoundStatement(IStatement first, IStatement second) {
         this.first = first;

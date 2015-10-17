@@ -7,8 +7,8 @@ import domain.expressions.Expression;
  */
 public class AssignStatement implements IStatement {
 
-    private String name;
-    private Expression expression;
+    private final String name;
+    private final Expression expression;
 
     public AssignStatement(String name, Expression expression) {
         this.name = name;
