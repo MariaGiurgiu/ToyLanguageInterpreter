@@ -17,4 +17,8 @@ public class PrintStatement implements IStatement {
     public String toStr() {
         return "print(" + expression.toStr() + ")";
     }
+
+    public Expression getExpression() {
+        return expression;
+    }
 }

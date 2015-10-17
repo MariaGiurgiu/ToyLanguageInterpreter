@@ -6,4 +6,6 @@ package domain.execution;
  */
 public interface IDictionary {
     int get(String key);
+
+    void put(String key, int value);
 }

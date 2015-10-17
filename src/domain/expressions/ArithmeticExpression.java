@@ -22,9 +22,12 @@ public class ArithmeticExpression extends Expression {
         int result1 = exp1.eval(symbols);
         int result2 = exp2.eval(symbols);
         switch (operator) {
-            case '+': return result1 + result2;
-            case '-': return result1 - result2;
-            case '*': return result1 * result2;
+            case '+':
+                return result1 + result2;
+            case '-':
+                return result1 - result2;
+            case '*':
+                return result1 * result2;
         }
         return 0;
     }

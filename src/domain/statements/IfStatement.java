@@ -21,4 +21,16 @@ public class IfStatement implements IStatement {
     public String toStr() {
         return "if " + expression.toStr() + " then " + thenStatement.toStr() + " else " + elseStatement.toStr();
     }
+
+    public Expression getExpression() {
+        return expression;
+    }
+
+    public IStatement getThenStatement() {
+        return thenStatement;
+    }
+
+    public IStatement getElseStatement() {
+        return elseStatement;
+    }
 }

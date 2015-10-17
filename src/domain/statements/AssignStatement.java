@@ -7,16 +7,24 @@ import domain.expressions.Expression;
  */
 public class AssignStatement implements IStatement {
 
-    private String id;
+    private String name;
     private Expression expression;
 
-    public AssignStatement(String id, Expression expression) {
-        this.id = id;
+    public AssignStatement(String name, Expression expression) {
+        this.name = name;
         this.expression = expression;
     }
 
     @Override
     public String toStr() {
-        return id + " = " + expression.toStr();
+        return name + " = " + expression.toStr();
+    }
+
+    public Expression getExpression() {
+        return expression;
+    }
+
+    public String getName() {
+        return name;
     }
 }

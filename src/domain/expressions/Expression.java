@@ -8,5 +8,6 @@ import domain.execution.IDictionary;
 public abstract class Expression {
 
     public abstract int eval(IDictionary symbols);
+
     public abstract String toStr();
 }

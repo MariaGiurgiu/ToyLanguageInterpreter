@@ -20,4 +20,11 @@ public class CompoundStatement implements IStatement {
         return "(" + first.toStr() + "; " + second.toStr() + ")";
     }
 
+    public IStatement getFirst() {
+        return first;
+    }
+
+    public IStatement getSecond() {
+        return second;
+    }
 }
