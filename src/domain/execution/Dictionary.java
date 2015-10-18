@@ -24,6 +24,8 @@ public class Dictionary implements IDictionary {
     @Override
     public int get(String key) throws InvalidKeyException {
         for (Entry e : entries) {
+            if (e == null)
+                break;
             if (Objects.equals(e.key, key))
                 return e.value;
         }

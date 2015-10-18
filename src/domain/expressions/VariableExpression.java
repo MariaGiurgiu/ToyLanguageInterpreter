@@ -4,6 +4,9 @@ import domain.execution.IDictionary;
 import domain.execution.InvalidKeyException;
 import domain.execution.ToyExecutionException;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * VariableExpression is an Expression that is composed of a single variable name.
  */
@@ -30,8 +33,12 @@ public class VariableExpression extends Expression {
         try {
             return symbols.get(name);
         } catch (InvalidKeyException e) {
-            String variable = e.getMessage().split("\\w$")[0];
-            throw new ToyExecutionException("Undefined variable" + variable);
+            String variable = "";
+            Pattern pattern = Pattern.compile(".*: (.*)$");
+            Matcher matcher = pattern.matcher(e.getMessage());
+            if (matcher.matches())
+                variable = matcher.group(1);
+            throw new ToyExecutionException("Undefined variable: " + variable);
         }
     }
 
