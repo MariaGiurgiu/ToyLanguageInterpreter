@@ -3,7 +3,8 @@ package domain.execution;
 import domain.statements.IStatement;
 
 /**
- * Created by alex on 10/11/15.
+ * Represents the state of a Toy Language program.
+ * It holds an execution stack, a dictionary of symbols (variables), and a list that accumulates the output.
  */
 public class ProgramState {
 
@@ -11,6 +12,11 @@ public class ProgramState {
     private IDictionary symbols;
     private IList output;
 
+    /**
+     * Creates a ProgramState for a new program.
+     *
+     * @param originalProgram IStatement that holds the entire program. It will be pushed in the execution stack.
+     */
     public ProgramState(IStatement originalProgram) {
         this.executionStack = new Stack(100);
         this.symbols = new Dictionary(100);
@@ -19,14 +25,23 @@ public class ProgramState {
     }
 
 
+    /**
+     * @return reference to the execution stack.
+     */
     public IStack getExecutionStack() {
         return executionStack;
     }
 
+    /**
+     * @return referecnce to the dictionary of symbols (variables).
+     */
     public IDictionary getSymbols() {
         return symbols;
     }
 
+    /**
+     * @return reference to the list that accumulates the output of the program.
+     */
     public IList getOutput() {
         return output;
     }

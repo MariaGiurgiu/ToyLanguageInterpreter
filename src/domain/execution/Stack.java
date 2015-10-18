@@ -5,13 +5,18 @@ import domain.statements.IStatement;
 import java.util.Arrays;
 
 /**
- * Created by alex on 10/17/15.
+ * Stack of IStatement.
  */
 public class Stack implements IStack {
 
     private IStatement[] array;
     private int size;
 
+    /**
+     * Creates a stack of a capacity given as argument.
+     *
+     * @param capacity number of elements the stack can hold.
+     */
     public Stack(int capacity) {
         array = new IStatement[capacity];
         size = 0;

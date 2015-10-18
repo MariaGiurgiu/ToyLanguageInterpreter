@@ -1,7 +1,7 @@
 package domain.execution;
 
 /**
- * Created by alex on 10/17/15.
+ * Signals that a key is not present in a collection of (key, value) pairs.
  */
 public class InvalidKeyException extends Throwable {
     public InvalidKeyException(String message) {

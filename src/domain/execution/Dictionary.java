@@ -4,13 +4,18 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /**
- * Created by alex on 10/17/15.
+ * Dictionary which maps an int to a string
  */
 public class Dictionary implements IDictionary {
 
     private Entry[] entries;
     private int size;
 
+    /**
+     * Creates a dictionary of Entry of capacity given as argument.
+     *
+     * @param capacity number of entries that the dictionary can hold.
+     */
     public Dictionary(int capacity) {
         entries = new Entry[capacity];
         size = 0;
@@ -41,6 +46,9 @@ public class Dictionary implements IDictionary {
         return Arrays.toString(entries).replaceAll(", null", "");
     }
 
+    /**
+     * Helper class that encapsulates the key and it's value.
+     */
     private class Entry {
         public final String key;
         public final int value;

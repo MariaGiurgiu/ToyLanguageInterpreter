@@ -3,13 +3,18 @@ package domain.execution;
 import java.util.Arrays;
 
 /**
- * Created by alex on 10/17/15.
+ * List that accumulates strings.
  */
 public class List implements IList {
 
     private String[] array;
     private int size;
 
+    /**
+     * Creates a list of a capacity given as argument.
+     *
+     * @param capacity number of strings the list can hold.
+     */
     public List(int capacity) {
         array = new String[capacity];
         size = 0;
