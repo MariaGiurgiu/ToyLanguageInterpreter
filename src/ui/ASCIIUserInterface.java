@@ -14,28 +14,42 @@ import java.util.Objects;
 import java.util.Scanner;
 
 /**
- * Created by alex on 10/17/15.
+ * ASCII user interface for the interpreter.
  */
 public class ASCIIUserInterface {
 
     private final boolean fromFile;
     private Controller controller;
     private Scanner keyboard;
-    private File inputFile;
 
+    /**
+     * Creates a ASCIIUserInterface for a controller.
+     *
+     * @param controller reference to a Controller.
+     */
     public ASCIIUserInterface(Controller controller) {
         this.controller = controller;
         keyboard = new Scanner(System.in);
         fromFile = false;
     }
 
+    /**
+     * Creates a ASCIIUserInterface for a controller. It will get the input from a file.
+     *
+     * @param controller reference to a Controller.
+     * @param fileName   name of the input file.
+     * @throws FileNotFoundException when a file with the fileName given is not found.
+     */
     public ASCIIUserInterface(Controller controller, String fileName) throws FileNotFoundException {
         this.controller = controller;
-        inputFile = new File(fileName);
+        File inputFile = new File(fileName);
         keyboard = new Scanner(inputFile);
         fromFile = true;
     }
 
+    /**
+     * Launches the user interface.
+     */
     public void run() {
         while (true) {
             printMainMenu();

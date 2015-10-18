@@ -1,7 +1,7 @@
 package ui;
 
 /**
- * Created by alex on 10/17/15.
+ * Signals bad input from user.
  */
 public class InvalidInputException extends Exception {
     public InvalidInputException(String message) {
