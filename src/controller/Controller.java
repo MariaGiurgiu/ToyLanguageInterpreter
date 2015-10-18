@@ -20,8 +20,9 @@ public class Controller {
     private void oneStep(ProgramState state) throws ToyExecutionException {
         IStack stack = state.getExecutionStack();
         if (stack.isEmpty()) {
+            String s = getCurrentProgram();
             repository.removeCurrentProgram();
-            throw new ToyExecutionException("Empty Stack. Nothing to execute.");
+            throw new ToyExecutionException("Empty Stack. Nothing to execute.\n" + s);
         }
         IStatement current = stack.pop();
         if (current instanceof CompoundStatement) {
