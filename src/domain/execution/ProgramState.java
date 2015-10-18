@@ -1,5 +1,7 @@
 package domain.execution;
 
+import domain.statements.IStatement;
+
 /**
  * Created by alex on 10/11/15.
  */
@@ -9,10 +11,11 @@ public class ProgramState {
     private IDictionary symbols;
     private IList output;
 
-    public ProgramState(IStack executionStack, IDictionary symbols, IList output) {
-        this.executionStack = executionStack;
-        this.symbols = symbols;
-        this.output = output;
+    public ProgramState(IStatement originalProgram) {
+        this.executionStack = new Stack(100);
+        this.symbols = new Dictionary(100);
+        this.output = new List(100);
+        executionStack.push(originalProgram);
     }
 
 
