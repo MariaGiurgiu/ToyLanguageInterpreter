@@ -8,4 +8,8 @@ import domain.execution.ProgramState;
 public interface IRepository {
 
     ProgramState getCurrentProgram();
+
+    void addProgram(ProgramState program);
+
+    void removeCurrentProgram();
 }
