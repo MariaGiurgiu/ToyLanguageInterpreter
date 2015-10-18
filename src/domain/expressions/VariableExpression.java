@@ -5,16 +5,26 @@ import domain.execution.InvalidKeyException;
 import domain.execution.ToyExecutionException;
 
 /**
- * Created by alex on 10/11/15.
+ * VariableExpression is an Expression that is composed of a single variable name.
  */
 public class VariableExpression extends Expression {
 
     private final String name;
 
+    /**
+     * Creates a VariableExpression for the variable name given as argument.
+     *
+     * @param name of the variable which will be represented.
+     */
     public VariableExpression(String name) {
         this.name = name;
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @throws ToyExecutionException when the name represented does not have an associated value.
+     */
     @Override
     public int eval(IDictionary symbols) throws ToyExecutionException {
         try {

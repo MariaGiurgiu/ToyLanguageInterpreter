@@ -4,7 +4,7 @@ import domain.execution.IDictionary;
 import domain.execution.ToyExecutionException;
 
 /**
- * Created by alex on 10/11/15.
+ * ArithmeticExpression is an Expression composed by a binary operator and two expression for it.
  */
 public class ArithmeticExpression extends Expression {
 
