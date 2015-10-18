@@ -37,6 +37,6 @@ public class ProgramState {
                 "executionStack=" + executionStack +
                 ",\nsymbols=" + symbols +
                 ",\noutput=" + output +
-                '}';
+                "\n}\n";
     }
 }

@@ -22,6 +22,6 @@ public class List implements IList {
 
     @Override
     public String toString() {
-        return Arrays.toString(array);
+        return Arrays.toString(array).replaceAll(", null", "");
     }
 }

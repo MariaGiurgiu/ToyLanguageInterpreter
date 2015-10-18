@@ -38,7 +38,7 @@ public class Dictionary implements IDictionary {
 
     @Override
     public String toString() {
-        return Arrays.toString(entries);
+        return Arrays.toString(entries).replaceAll(", null", "");
     }
 
     private class Entry {

@@ -37,6 +37,6 @@ public class Stack implements IStack {
 
     @Override
     public String toString() {
-        return Arrays.toString(array);
+        return Arrays.toString(array).replaceAll(", null", "");
     }
 }
