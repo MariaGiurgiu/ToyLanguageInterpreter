@@ -3,7 +3,7 @@ package repository;
 import domain.execution.ProgramState;
 
 /**
- * Created by alex on 10/17/15.
+ * Repository of ProgramState.
  */
 public class Repository implements IRepository {
 
@@ -11,6 +11,9 @@ public class Repository implements IRepository {
     private int currentProgram;
     private int size;
 
+    /**
+     * Creates a repository of capacity 1.
+     */
     public Repository() {
         programs = new ProgramState[1];
         currentProgram = 0;
