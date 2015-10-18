@@ -6,13 +6,18 @@ import domain.statements.*;
 import repository.IRepository;
 
 /**
- * Created by alex on 10/11/15.
+ * The Controller of the interpreter.
  */
 public class Controller {
 
     private IRepository repository;
     private boolean debug = false;
 
+    /**
+     * Creates a controller with a repository reference.
+     *
+     * @param repository reference to the repository.
+     */
     public Controller(IRepository repository) {
         this.repository = repository;
     }
@@ -68,6 +73,12 @@ public class Controller {
 
     }
 
+    /**
+     * Executes the current program. If the debug flag is set it will print the state after each step.
+     *
+     * @throws ToyExecutionException when a toy language exception appears. Always throws exception
+     *                               at the and of the program when the stack becomes empty.
+     */
     public void execute() throws ToyExecutionException {
         ProgramState program = repository.getCurrentProgram();
         while (true) {
@@ -78,6 +89,9 @@ public class Controller {
         }
     }
 
+    /**
+     * @return the state of the current program as string.
+     */
     public String getCurrentProgram() {
         return repository.getCurrentProgram().toString();
     }
@@ -90,6 +104,11 @@ public class Controller {
         this.debug = debug;
     }
 
+    /**
+     * Creates a ProgramState for the given program and adds it to the repository.
+     *
+     * @param program to be loaded.
+     */
     public void loadProgram(IStatement program) {
         repository.addProgram(new ProgramState(program));
     }
