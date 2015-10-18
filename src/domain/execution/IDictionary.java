@@ -5,7 +5,7 @@ package domain.execution;
  * Dictionary interface
  */
 public interface IDictionary {
-    int get(String key);
+    int get(String key) throws InvalidKeyException;
 
     void put(String key, int value);
 }
