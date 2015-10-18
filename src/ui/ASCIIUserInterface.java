@@ -8,6 +8,8 @@ import domain.expressions.Expression;
 import domain.expressions.VariableExpression;
 import domain.statements.*;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -16,12 +18,22 @@ import java.util.Scanner;
  */
 public class ASCIIUserInterface {
 
+    private final boolean fromFile;
     private Controller controller;
     private Scanner keyboard;
+    private File inputFile;
 
     public ASCIIUserInterface(Controller controller) {
         this.controller = controller;
         keyboard = new Scanner(System.in);
+        fromFile = false;
+    }
+
+    public ASCIIUserInterface(Controller controller, String fileName) throws FileNotFoundException {
+        this.controller = controller;
+        inputFile = new File(fileName);
+        keyboard = new Scanner(inputFile);
+        fromFile = true;
     }
 
     public void run() {
@@ -31,6 +43,8 @@ public class ASCIIUserInterface {
             try {
                 int choice = keyboard.nextInt();
                 keyboard.nextLine();
+                if (fromFile)
+                    System.out.println(Integer.toString(choice));
                 switch (choice) {
                     case 0:
                         return;
@@ -99,6 +113,8 @@ public class ASCIIUserInterface {
             try {
                 int choice = keyboard.nextInt();
                 keyboard.nextLine();
+                if (fromFile)
+                    System.out.println(Integer.toString(choice));
                 if (choice == 1) {
                     System.out.println("First Statement:");
                     IStatement first = newStatement();
@@ -107,8 +123,10 @@ public class ASCIIUserInterface {
                     return new CompoundStatement(first, second);
                 }
                 if (choice == 2) {
-                    System.out.println("Variable name: ");
+                    System.out.print("Variable name: ");
                     String name = keyboard.nextLine();
+                    if (fromFile)
+                        System.out.println(name);
                     System.out.println("Assigned value: ");
                     Expression value = newExpression();
                     return new AssignStatement(name, value);
@@ -141,9 +159,13 @@ public class ASCIIUserInterface {
             try {
                 int choice = keyboard.nextInt();
                 keyboard.nextLine();
+                if (fromFile)
+                    System.out.println(Integer.toString(choice));
                 if (choice == 1) {
                     System.out.print("Enter operator (+, -, *): ");
                     String operator = keyboard.nextLine();
+                    if (fromFile)
+                        System.out.println(operator);
                     System.out.println("Left Expression: ");
                     Expression left = newExpression();
                     System.out.println("Right Expression: ");
@@ -154,11 +176,15 @@ public class ASCIIUserInterface {
                     System.out.print("Enter constant value: ");
                     int value = keyboard.nextInt();
                     keyboard.nextLine();
+                    if (fromFile)
+                        System.out.println(Integer.toString(value));
                     return new ConstantExpression(value);
                 }
                 if (choice == 3) {
                     System.out.print("Enter variable name: ");
                     String name = keyboard.nextLine();
+                    if (fromFile)
+                        System.out.println(name);
                     return new VariableExpression(name);
                 }
                 throw new InvalidInputException("Choice " + Integer.toString(choice) + " is invalid!");
