@@ -3,7 +3,7 @@ package domain.statements;
 import domain.expressions.Expression;
 
 /**
- * Created by alex on 10/11/15.
+ * PrintStatement is statement composed of a expression needed to be printed.
  */
 public class PrintStatement implements IStatement {
 

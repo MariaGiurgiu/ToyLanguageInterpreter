@@ -3,7 +3,8 @@ package domain.statements;
 import domain.expressions.Expression;
 
 /**
- * Created by alex on 10/11/15.
+ * IfStatement is a statement composed of a expression that represents the condition and two statements.
+ * One for each branch.
  */
 public class IfStatement implements IStatement {
 
@@ -19,7 +20,9 @@ public class IfStatement implements IStatement {
 
     @Override
     public String toString() {
-        return "if " + expression.toString() + " then " + thenStatement.toString() + " else " + elseStatement.toString();
+        return "if " + expression.toString() +
+                " then " + thenStatement.toString() +
+                " else " + elseStatement.toString();
     }
 
     public Expression getExpression() {

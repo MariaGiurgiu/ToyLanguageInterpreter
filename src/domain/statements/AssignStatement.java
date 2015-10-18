@@ -3,7 +3,7 @@ package domain.statements;
 import domain.expressions.Expression;
 
 /**
- * Created by alex on 10/11/15.
+ * AssignStatement is a statement composed of a variable name (left hand side) and an expression (right hand side).
  */
 public class AssignStatement implements IStatement {
 
