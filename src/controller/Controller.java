@@ -19,8 +19,10 @@ public class Controller {
 
     private void oneStep(ProgramState state) throws ToyExecutionException {
         IStack stack = state.getExecutionStack();
-        if (stack.isEmpty())
+        if (stack.isEmpty()) {
+            repository.removeCurrentProgram();
             throw new ToyExecutionException("Empty Stack. Nothing to execute.");
+        }
         IStatement current = stack.pop();
         if (current instanceof CompoundStatement) {
             CompoundStatement statement = (CompoundStatement) current;
@@ -60,11 +62,12 @@ public class Controller {
                 branch = statement.getElseStatement();
             }
             stack.push(branch);
+            return;
         }
 
     }
 
-    void execute() throws ToyExecutionException {
+    public void execute() throws ToyExecutionException {
         ProgramState program = repository.getCurrentProgram();
         while (true) {
             oneStep(program);
@@ -74,11 +77,19 @@ public class Controller {
         }
     }
 
-    String getCurrentProgram() {
+    public String getCurrentProgram() {
         return repository.getCurrentProgram().toString();
+    }
+
+    public boolean isDebug() {
+        return debug;
     }
 
     public void setDebug(boolean debug) {
         this.debug = debug;
+    }
+
+    public void loadProgram(IStatement program) {
+        repository.addProgram(new ProgramState(program));
     }
 }
